@@ -7,6 +7,10 @@
 - Written in the Python programming language
 
 ## Installing Ansible
+Ansible release history can be found from
+```
+https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html
+```
 ### On VirtualBox
 #### Download VirtualBox
 ```
@@ -25,15 +29,6 @@ https://sourceforge.net/projects/osboxes/files/v/vb/55-U-u/18.04/18.04.6/64bit.7
 Username: osboxes
 Password: osboxes.org
 ```
-#### Create a VirtualBox VM with a static IP and internet access
-
-NAT – This is default network adapter when you create a new VM. This gives internet access but applications running on the host can’t make network connections to the VM.
-
-Bridged – with this mode VirtualBox uses a special driver for the host’s physical network interface to create a virtual network interface for the VM. The VM gets an IP on the same network that the host is physically connected to. Host-to-guest communication and internet access are available.
-
-Host-only – with this mode VirtualBox creates a virtual network that the host and the VMs are connected to. This allows host-to-guest communication but this virtual network has no access to the internet.
-
-
 #### Installing Python3.9
 ```
 sudo yum install gcc openssl-devel bzip2-devel libffi-devel zlib-devel -y
@@ -47,26 +42,20 @@ sudo make altinstall
 ```
 whereis python3
 whereis pip3
-python3.9 --version
-```
-#### Update PATH & Aliases
-```
-cat << EOF > ~/.bashrc
-alias python=python3.9
-alias pip=pip3.9
-export PATH=$PATH:/usr/local/bin
-EOF
-source ~/.bashrc
+/usr/local/bin/python3.9 --version
 ```
 #### Installing Ansible
-With Pip
-```
-python -m pip install ansible
-```
-With YUM
+With YUM(Installs ansible 2.9)
 ```
 sudo yum install epel-release -y
 sudo yum install ansible -y
+```
+With Pip(Installs ansible 2.15)
+```
+/usr/local/bin/pip3.9 install ansible
+```
+```
+pip install ansible
 ```
 #### Ansible installation directory contents
 ```
@@ -76,6 +65,24 @@ total 24
 -rw-r--r--. 1 root root  1016 Jan 15  2022 hosts
 drwxr-xr-x. 2 root root     6 Jan 15  2022 roles
 ```
-
+#### Unistalling Ansible
+```
+yum autoremove ansible -y
+```
+#### Update PATH
+```
+cat << EOF >> ~/.bashrc
+export PATH=$PATH:/usr/local/bin
+EOF
+source ~/.bashrc
+```
+#### Update PATH & Aliases
+```
+cat << EOF >> ~/.bashrc
+alias python=python3.9
+alias pip=pip3.9
+EOF
+source ~/.bashrc
+```
 ### On AWS EC2
 TODO
