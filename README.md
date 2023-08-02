@@ -12,7 +12,7 @@ Ansible release history can be found from
 https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html
 ```
 ### On VirtualBox
-A quick summary about VirtualBox networking modes
+A quick summary about VirtualBox networking modes:
 
 - NAT – This is default network adapter when you create a new VM. This gives internet access but applications running on the host can’t make network connections to the VM.
 
