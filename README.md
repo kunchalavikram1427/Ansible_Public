@@ -12,6 +12,14 @@ Ansible release history can be found from
 https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html
 ```
 ### On VirtualBox
+A quick summary about VirtualBox networking modes
+
+- NAT – This is default network adapter when you create a new VM. This gives internet access but applications running on the host can’t make network connections to the VM.
+
+- Bridged – with this mode VirtualBox uses a special driver for the host’s physical network interface to create a virtual network interface for the VM. The VM gets an IP on the same network that the host is physically connected to. Host-to-guest communication and internet access are available.
+
+- Host-only – with this mode VirtualBox creates a virtual network that the host and the VMs are connected to. This allows host-to-guest communication but this virtual network has no access to the internet.
+
 #### Download VirtualBox
 ```
 https://www.virtualbox.org/wiki/Downloads
@@ -47,8 +55,9 @@ whereis pip3
 #### Installing Ansible
 With YUM(Installs ansible 2.9)
 ```
-sudo yum install epel-release -y
-sudo yum install ansible -y
+yum install epel-release -y
+yum install ansible -y
+yum install sshpass -y
 ```
 With Pip(Installs ansible 2.15)
 ```
@@ -83,6 +92,17 @@ alias python=python3.9
 alias pip=pip3.9
 EOF
 source ~/.bashrc
+```
+
+#### Set Hostnames
+```
+hostnamectl set-hostname <NEW NAME>
+```
+
+
+#### Ping Test
+```
+ansible all -m ping --user <USERNAME> --ask-pass
 ```
 ### On AWS EC2
 TODO
