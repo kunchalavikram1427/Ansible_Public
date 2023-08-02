@@ -53,18 +53,15 @@ whereis pip3
 /usr/local/bin/python3.9 --version
 ```
 #### Installing Ansible
-With YUM(Installs ansible 2.9)
+##### With YUM(Installs ansible 2.9)
 ```
 yum install epel-release -y
 yum install ansible -y
 yum install sshpass -y
 ```
-With Pip(Installs ansible 2.15)
+##### With Pip(Installs ansible 2.15)
 ```
 /usr/local/bin/pip3.9 install ansible
-```
-```
-pip install ansible
 ```
 #### Ansible installation directory contents
 ```
@@ -85,7 +82,7 @@ export PATH=$PATH:/usr/local/bin
 EOF
 source ~/.bashrc
 ```
-#### Update PATH & Aliases
+#### Update Aliases
 ```
 cat << EOF >> ~/.bashrc
 alias python=python3.9
@@ -93,13 +90,10 @@ alias pip=pip3.9
 EOF
 source ~/.bashrc
 ```
-
 #### Set Hostnames
 ```
 hostnamectl set-hostname <NEW NAME>
 ```
-
-
 #### Ping Test
 ```
 ansible all -m ping --user <USERNAME> --ask-pass
