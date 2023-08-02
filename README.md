@@ -53,13 +53,13 @@ whereis pip3
 /usr/local/bin/python3.9 --version
 ```
 #### Installing Ansible
-##### With YUM(Installs ansible 2.9)
+##### with yum (installs ansible 2.9)
 ```
 yum install epel-release -y
 yum install ansible -y
 yum install sshpass -y
 ```
-##### With Pip(Installs ansible 2.15)
+##### with pip(installs ansible 2.15)
 ```
 /usr/local/bin/pip3.9 install ansible
 ```
