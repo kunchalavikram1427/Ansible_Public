@@ -101,6 +101,7 @@ ansible all -m ping --user <USERNAME> --ask-pass
 ```
 ### On AWS EC2
 AMI: Amazon Linux 2
+
 Instance: t2.micro
 #### Installing Python3.9
 ```
