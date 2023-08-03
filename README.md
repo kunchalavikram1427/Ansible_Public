@@ -39,12 +39,13 @@ Password: osboxes.org
 ```
 #### Installing Python3.9
 ```
-sudo yum install gcc openssl-devel bzip2-devel libffi-devel zlib-devel -y
+sudo su
+yum install gcc openssl-devel bzip2-devel libffi-devel zlib-devel -y
 wget https://www.python.org/ftp/python/3.9.16/Python-3.9.16.tgz
 tar xzf Python-3.9.16.tgz
 cd Python-3.9.16
-sudo ./configure --enable-optimizations
-sudo make altinstall
+./configure --enable-optimizations
+make altinstall
 ```
 #### Check Python & PIP versions
 ```
@@ -94,9 +95,45 @@ source ~/.bashrc
 ```
 hostnamectl set-hostname <NEW NAME>
 ```
-#### Ping Test
+#### Ping test
 ```
 ansible all -m ping --user <USERNAME> --ask-pass
 ```
 ### On AWS EC2
-TODO
+AMI: Amazon Linux 2
+Instance: t2.micro
+#### Installing Python3.9
+```
+sudo su
+yum install gcc openssl-devel bzip2-devel libffi-devel zlib-devel -y
+wget https://www.python.org/ftp/python/3.9.16/Python-3.9.16.tgz
+tar xzf Python-3.9.16.tgz
+cd Python-3.9.16
+./configure --enable-optimizations
+make altinstall
+```
+#### Check Python & PIP versions
+```
+whereis python3
+whereis pip3
+/usr/local/bin/python3.9 --version
+```
+#### Installing Ansible
+##### with pip(installs ansible 2.15)
+```
+/usr/local/bin/pip3.9 install ansible
+```
+#### Ping test
+```
+root@ip-172-31-81-238 ec2-user]# ansible all -m ping --user ec2-user --private-key=ec2.pem
+[WARNING]: Platform linux on host 172.31.87.122 is using the discovered Python interpreter at /usr/bin/python3.7,
+but future installation of another Python interpreter could change the meaning of that path. See
+https://docs.ansible.com/ansible-core/2.15/reference_appendices/interpreter_discovery.html for more information.
+172.31.87.122 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.7"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+```
