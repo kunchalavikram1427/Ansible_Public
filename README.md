@@ -100,9 +100,8 @@ hostnamectl set-hostname <NEW NAME>
 ansible all -m ping --user <USERNAME> --ask-pass
 ```
 ### On AWS EC2
-AMI: Amazon Linux 2
+Amazon Linux 2 AMI and t2.micro instance
 
-Instance: t2.micro
 #### Installing Python3.9
 ```
 sudo su
