@@ -137,3 +137,34 @@ https://docs.ansible.com/ansible-core/2.15/reference_appendices/interpreter_disc
     "ping": "pong"
 }
 ```
+
+## Setup Passwordless SSH
+### Create a new user account
+Create user with `useradd`
+```
+useradd -m ansible
+```
+Add this user to sudoers file to grant sudo privileges to all commands without password 
+```
+echo "ansible ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+```
+### Generate SSH keys
+Generate SSH Keys using the following command in your local terminal:
+```
+ssh-keygen
+```
+This will create two files: id_rsa (private key) and id_rsa.pub (public key) in the ~/.ssh/ directory of the user.
+
+### Copy SSH keys to remote machine
+Now, you need to copy the content of your public key (id_rsa.pub) to the remote server's authorized_keys file. You can do this manually or by using the ssh-copy-id command:
+
+```
+ssh-copy-id user@remote_server_ip
+```
+Replace user with your username on the remote server and remote_server_ip with the IP address or hostname of the remote server. This command will prompt you for the remote server's password once, to add your public key to the authorized_keys file.
+If the ssh-copy-id command is not available on your system, you can manually append the public key to the authorized_keys file.
+Once the public key is added to the remote server's authorized_keys file, you should be able to SSH into the remote server without being prompted for a password:
+```
+ssh user@remote_server_ip
+```
+If everything is set up correctly, you will log in without needing to enter a password.
