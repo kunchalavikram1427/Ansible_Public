@@ -153,16 +153,16 @@ Generate SSH Keys using the following command in your local terminal:
 ```
 ssh-keygen
 ```
-This will create two files: id_rsa (private key) and id_rsa.pub (public key) in the ~/.ssh/ directory of the user.
+This will create two files: `id_rsa` (private key) and `id_rsa.pub` (public key) in the `~/.ssh/` directory of the user.
 
 ### Copy SSH keys to remote machine
-Now, you need to copy the content of your public key (id_rsa.pub) to the remote server's authorized_keys file at `~/.ssh/authorized_keys`. You can do this manually or by using the ssh-copy-id command:
+Now, you need to copy the content of your public key (id_rsa.pub) to the remote server's authorized_keys file at `~/.ssh/authorized_keys`. You can do this manually or by using the `ssh-copy-id` command.
 ```
 ssh-copy-id user@remote_server_ip
 ```
 Replace user with your username on the remote server and remote_server_ip with the IP address or hostname of the remote server. This command will prompt you for the remote server's password once, to add your public key to the authorized_keys file.
 If the ssh-copy-id command is not available on your system, you can manually append the public key to the authorized_keys file.
-Once the public key is added to the remote server's authorized_keys file, you should be able to SSH into the remote server without being prompted for a password:
+Once the public key is added to the remote server's authorized_keys file, you should be able to SSH into the remote server without being prompted for a password
 ```
 ssh user@remote_server_ip
 ```
