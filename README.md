@@ -127,6 +127,7 @@ whereis pip3
 ```
 ansible all -i <INVENTORY-FILE> -m ping --user <REMOTE-USER>
 ```
+
 ```
 root@ip-172-xx-xx-xx ec2-user] # ansible all -i inv.txt -m ping --user ec2-user --private-key=ec2.pem --private-key=<PRIVATE-KEY-FILE>
 [WARNING]: Platform linux on host 172.31.87.122 is using the discovered Python interpreter at /usr/bin/python3.7,
