@@ -125,7 +125,7 @@ whereis pip3
 ```
 #### Ping test
 ```
-root@ip-172-31-81-238 ec2-user]# ansible all -m ping --user ec2-user --private-key=ec2.pem
+root@ip-172-31-81-238 ec2-user]# ansible all -i <INVENTORY-FILE> -m ping --user <REMOTE-USER> --private-key=<PRIVATE-KEY-FILE>
 [WARNING]: Platform linux on host 172.31.87.122 is using the discovered Python interpreter at /usr/bin/python3.7,
 but future installation of another Python interpreter could change the meaning of that path. See
 https://docs.ansible.com/ansible-core/2.15/reference_appendices/interpreter_discovery.html for more information.
@@ -156,8 +156,7 @@ ssh-keygen
 This will create two files: id_rsa (private key) and id_rsa.pub (public key) in the ~/.ssh/ directory of the user.
 
 ### Copy SSH keys to remote machine
-Now, you need to copy the content of your public key (id_rsa.pub) to the remote server's authorized_keys file. You can do this manually or by using the ssh-copy-id command:
-
+Now, you need to copy the content of your public key (id_rsa.pub) to the remote server's authorized_keys file at `~/.ssh/authorized_keys`. You can do this manually or by using the ssh-copy-id command:
 ```
 ssh-copy-id user@remote_server_ip
 ```
