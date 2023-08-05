@@ -125,7 +125,10 @@ whereis pip3
 ```
 #### Ping test
 ```
-root@ip-172-31-81-238 ec2-user]# ansible all -i <INVENTORY-FILE> -m ping --user <REMOTE-USER> --private-key=<PRIVATE-KEY-FILE>
+ansible all -i <INVENTORY-FILE> -m ping --user <REMOTE-USER>
+```
+```
+root@ip-172-xx-xx-xx ec2-user] # ansible all -i inv.txt -m ping --user ec2-user --private-key=ec2.pem --private-key=<PRIVATE-KEY-FILE>
 [WARNING]: Platform linux on host 172.31.87.122 is using the discovered Python interpreter at /usr/bin/python3.7,
 but future installation of another Python interpreter could change the meaning of that path. See
 https://docs.ansible.com/ansible-core/2.15/reference_appendices/interpreter_discovery.html for more information.
