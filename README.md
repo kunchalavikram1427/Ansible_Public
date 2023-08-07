@@ -171,3 +171,9 @@ Once the public key is added to the remote server's authorized_keys file, you sh
 ssh user@remote_server_ip
 ```
 If everything is set up correctly, you will log in without needing to enter a password.
+
+## Important Links
+#### Ansible Configuration
+```
+https://docs.ansible.com/ansible/latest/reference_appendices/config.html#
+```
