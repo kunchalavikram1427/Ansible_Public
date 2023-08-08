@@ -6,6 +6,24 @@
 - Agentless
 - Written in the Python programming language
 
+### Ansible executables
+```
+[ansible@comtroller]$ ls -l /usr/local/bin/ | grep -i ansible
+total 18312
+-rwxr-xr-x 1 root root      224 Aug  3 19:23 ansible
+-rwxr-xr-x 1 root root      244 Aug  3 19:24 ansible-community
+-rwxr-xr-x 1 root root      225 Aug  3 19:23 ansible-config
+-rwxr-xr-x 1 root root      254 Aug  3 19:23 ansible-connection
+-rwxr-xr-x 1 root root      226 Aug  3 19:23 ansible-console
+-rwxr-xr-x 1 root root      222 Aug  3 19:23 ansible-doc
+-rwxr-xr-x 1 root root      225 Aug  3 19:23 ansible-galaxy
+-rwxr-xr-x 1 root root      228 Aug  3 19:23 ansible-inventory
+-rwxr-xr-x 1 root root      227 Aug  3 19:23 ansible-playbook
+-rwxr-xr-x 1 root root      223 Aug  3 19:23 ansible-pull
+-rwxr-xr-x 1 root root     1708 Aug  3 19:23 ansible-test
+
+```
+
 ## Installing Ansible
 Ansible release history can be found from
 ```
@@ -173,7 +191,7 @@ ssh user@remote_server_ip
 If everything is set up correctly, you will log in without needing to enter a password.
 
 ## Important Links
-#### Ansible Configuration
+#### Ansible Configuration Settings
 ```
 https://docs.ansible.com/ansible/latest/reference_appendices/config.html#
 ```
